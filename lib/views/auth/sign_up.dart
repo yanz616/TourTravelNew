@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:tourtravelnew/shared/theme/theme.dart';
+import 'package:tourtravelnew/views/auth/sign_in.dart';
 import 'package:tourtravelnew/views/widgets/button_constum.dart';
 import 'package:tourtravelnew/views/widgets/form.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,13 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 children: [
                   FormCostum(
+                    title: 'Nama Lengkap',
+                    hintText: 'Masukan Nama',
+                    prefixIcon: Icons.person,
+                    obscureText: false,
+                  ),
+                  Gap(14),
+                  FormCostum(
                     title: 'Nomor HandPhone',
                     hintText: 'Masukan Nomor Anda',
                     prefixIcon: Icons.phone,
@@ -37,14 +46,14 @@ class LoginPage extends StatelessWidget {
                   FormCostum(
                     title: 'Password',
                     hintText: 'Masukan Password',
-                    prefixIcon: Icons.phone,
+                    prefixIcon: Icons.lock,
                     obscureText: true,
                   ),
                   Gap(14),
                   ButtonCostum(
                     onPressed: () {},
                     child: Text(
-                      'Masuk',
+                      'Daftar',
                       style: whiteTextStyle.copyWith(
                         fontWeight: medium,
                         fontSize: 14,
@@ -88,36 +97,31 @@ class LoginPage extends StatelessWidget {
                     ),
                     color: whiteColor1,
                   ),
-                  Gap(214),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Lupa Password',
-                      style: blackTextStyle.copyWith(
-                        fontWeight: medium,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
+                  Gap(114),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Belum Punya Akun?',
+                        'Sudah Punya Akun?',
                         style: whiteTextStyle.copyWith(
                           fontWeight: regular,
                           fontSize: 12,
                         ),
                       ),
-                      Text(
-                        '  Daftar',
-                        style: blackTextStyle.copyWith(
-                          fontWeight: medium,
-                          fontSize: 12,
+                      TextButton(
+                        onPressed: () {
+                          Get.off(() => const SignInPage());
+                        },
+                        child: Text(
+                          'Masuk',
+                          style: blackTextStyle.copyWith(
+                            fontWeight: medium,
+                            fontSize: 12,
+                          ),
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
