@@ -27,17 +27,14 @@ class FormCostum extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Text(
-              title,
-              style: whiteTextStyle.copyWith(
-                fontWeight: medium,
-                fontSize: 16,
-              ),
-            ),
-          ],
+        Text(
+          title,
+          style: whiteTextStyle.copyWith(
+            fontWeight: medium,
+            fontSize: 16,
+          ),
         ),
         const Gap(6),
         TextFormField(
@@ -70,6 +67,48 @@ class FormCostum extends StatelessWidget {
           obscureText: obscureText,
         )
       ],
+    );
+  }
+}
+
+class FormSearch extends StatelessWidget {
+  final String hintText;
+  const FormSearch({
+    super.key,
+    required this.hintText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      style: greenTextStyle.copyWith(
+        fontWeight: regular,
+        fontSize: 12,
+      ),
+      textAlignVertical: TextAlignVertical.center,
+      decoration: InputDecoration(
+        fillColor: whiteColor1,
+        filled: true,
+        constraints: const BoxConstraints(maxHeight: 36),
+        contentPadding: const EdgeInsets.symmetric(vertical: 5),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(
+            width: 0,
+            style: BorderStyle.none,
+          ),
+          borderRadius: BorderRadius.circular(50),
+        ),
+        hintText: hintText,
+        hintStyle: greenTextStyle.copyWith(
+          fontWeight: regular,
+          fontSize: 12,
+        ),
+        prefixIcon: const Icon(
+          Icons.search,
+          color: secondColor,
+          size: 30,
+        ),
+      ),
     );
   }
 }
